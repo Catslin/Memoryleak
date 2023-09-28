@@ -13,6 +13,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/blog', {
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
+app.use(express.static('public'));
 
 app.get('/articles', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
