@@ -32,16 +32,17 @@
                 <a href="/articles/new">SEND</a>
             </div>
                 <% articles.forEach(article => { %>
-                    <a href="articles/<%= article.slug %>">
                         <div class="article-card">
                             <div class="card-top">
                                 <img src="./image/3.png" alt="">
                                 <span>Super萝莉控</span>
                                 <span><%= article.createdAt.toLocaleDateString() %></span>
                             </div>
+                            <% if (article.image) { %>
                             <div class="card-center">
                                 <img src="<%= article.image %>" alt="">
                             </div>
+                            <% } %>
                             <div class="card-context">
                                 <span><%= article.title %></span>
                                 <p><%= article.description %>.</p>
@@ -54,7 +55,6 @@
                                 <img src="./image/2 (3).png" alt="">
                             </div>
                         </div>
-                    </a>
                 <% }) %>
             </div>
             <div class="footer-nav"></div>

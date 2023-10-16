@@ -159,6 +159,8 @@ body {
   display: flex;
   align-content: center;
   justify-content: space-between;
+  position: relative;
+  bottom: 5px;
 }
 .card-buttom > img {
   width: 30px;

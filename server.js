@@ -2,7 +2,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
-const homeRouter = require('./routes/home')
 const methodOverride = require('method-override')
 const app = express()
 
@@ -15,16 +14,11 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'));
 
-app.get('/articles', async (req, res) => {
+app.get('/', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
   res.render('articles/index', { articles: articles })
 })
 
-app.get('/',(req,res) => {
-  res.render('home/index')
-})
 
 app.use('/articles', articleRouter)
-app.use('/home', homeRouter)
-
 app.listen(5000)
