@@ -2,6 +2,19 @@ const express = require("express");
 const Article = require("./../models/article");
 const router = express.Router();
 
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public/uploads/");
+  },
+  filename: function (req, file, cb) {
+    const timestamp = Date.now();
+    const filename = timestamp + "_" + file.originalname;
+    cb(null, filename);
+  },
+});
+const upload = multer({ storage: storage });
+
 router.get("/new", (req, res) => {
   res.render("articles/new", { article: new Article() });
 });
@@ -19,6 +32,7 @@ router.get("/:slug", async (req, res) => {
 
 router.post(
   "/",
+  upload.single('image'),
   async (req, res, next) => {
     req.article = new Article();
     next();
@@ -28,6 +42,7 @@ router.post(
 
 router.put(
   "/:id",
+  upload.single('image'),
   async (req, res, next) => {
     req.article = await Article.findById(req.params.id);
     next();
@@ -46,6 +61,9 @@ function saveArticleAndRedirect(path) {
     article.title = req.body.title;
     article.description = req.body.description;
     article.markdown = req.body.markdown;
+    if (req.file) {
+      article.image = '/uploads/'+req.file.filename
+    }
     try {
       article = await article.save();
       res.redirect(`/articles/${article.slug}`);
