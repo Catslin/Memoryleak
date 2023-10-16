@@ -1,0 +1,257 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  background-image: url('/image/blogbacck.jpg');
+}
+
+.page-container {
+  width: 90%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.self-page {
+  width: 10%;
+  height: 95%;
+}
+.center-show {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.center-nav {
+  width: 90%;
+  height: 10%;
+}
+.articles-show {
+  height: auto;
+  width: 100%;
+  height: 85%;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  width: 3px; /* 设置滚动条宽度 */
+}
+/* 设置滚动条滑块样式 */
+::-webkit-scrollbar-thumb {
+  background-color: #555; /* 设置滚动条滑块颜色 */
+}
+
+.center-nav {
+  height: 10%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-nav > input {
+  background: transparent;
+  width: 60%;
+  height: 60%;
+  border: none;
+  outline: none; /* 去掉默认的外边框 */
+  border-bottom: 5px solid black;
+  caret-color: black;
+  font-size: 30px;
+}
+.center-nav > button {
+  width: auto;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  font-family: Verdana, sans-serif;
+  display: flex;
+  justify-content: flex-start;
+}
+.center-nav > a {
+  color: black;
+  outline: none;
+  font-family: Blippo, fantasy;
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+  border: white 5px solid;
+  width: 5%;
+}
+
+.article-card {
+  background-color: white;
+  border: 2px black solid;
+  width: 90%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.article-card > .card-top {
+  width: 100%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  font-family: Jazz LET, fantasy;
+}
+.article-card > .card-top * {
+  margin: 10px;
+}
+.article-card > .card-top > img {
+  align-items: center;
+  justify-content: center;
+  border: 3px solid black;
+  height: 60px;
+  top: 0;
+  position: relative;
+  border-radius: 50%;
+}
+
+.card-center {
+  width: 80%;
+  object-fit: contain;
+  max-height: 300px;
+  min-height: 100px;
+  overflow: auto;
+  overflow-x: hidden; /* 禁用水平拖动条 */
+  border: 2px solid black;
+}
+.card-center::-webkit-scrollbar {
+  width: 0px; /* 隐藏滚动条 */
+}
+.card-center > img {
+  width: 100%;
+}
+.card-context {
+  width: 80%;
+  margin: 10px;
+}
+.card-context > span {
+  font-family: Bradley Hand, cursive;
+  margin: 10px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+}
+.card-context > p {
+  font-family: Marker Felt, fantasy;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}
+.card-buttom {
+  width: 80%;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.card-buttom > img {
+  width: 30px;
+}
+/* left-nav */
+.icon {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 5px solid transparent;
+}
+.icon > span {
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  font-size: 30px;
+  width: 80%;
+  font-family: DejaVu Sans Mono, monospace;
+}
+
+.tages {
+  width: 100%;
+  max-height: 70%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.tag {
+  padding: 0;
+  margin: 5px;
+  width: auto;
+  height: auto;
+  border: 2px solid transparent;
+  padding: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  color: black;
+  font-family: Marker Felt, fantasy;
+  transition: background-color 0.5s ease, color 1s, border 0.5s ease;
+}
+.tag:hover {
+  background-color: black;
+  border: white 2px solid;
+  color: honeydew;
+}
+/* 媒体查询 */
+@media (max-width: 768px) {
+  .page-container {
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .self-page {
+    width: 80%;
+  }
+  .icon > img {
+    margin: auto;
+    width: 50%;
+  }
+
+  .center-show {
+    width: 90%;
+  }
+  .center-show > .center-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .center-show > .center-nav > input {
+    width: 90%;
+  }
+  .center-nav > img {
+    width: 8%;
+  }
+  .article-card {
+    height: 30%;
+  }
+  .card-buttom {
+    display: none;
+  }
+  .card-top {
+    flex-direction: column;
+  }
+  .addTxt { 
+    width: 80px;
+    height: 80px;
+    right: 5%;
+    bottom: 5%;
+    background-color: white;
+  }
+}

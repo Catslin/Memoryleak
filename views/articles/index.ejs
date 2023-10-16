@@ -1,67 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Blog</title>
-  </head>
-  <body>
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/articles">Write</a></li>
-      </ol>
-    </nav>
-    <div class="container">
-      <h1 class="mb-4">Blog Articles</h1>
-      <a href="/articles/new" class="btn btn-success">New Article</a>
-
-      <!--  -->
-      <% articles.forEach(article => { %>
-      <a href="articles/<%= article.slug %>">
-        <div
-          class="card w-580 car-img2"
-          style="
-            margin-top: 20px;
-            background-size: cover;
-            background-position: left;
-            background-position: left;
-            background-image: url('<%= article.image %>');
-          "
-        >
-          <div class="card-body">
-            <div class="row" style="margin-top: 10px">
-              <div class="col-2 d-none d-md-block">
-                <h5 class="card-title">
-                  <%= article.createdAt.toLocaleDateString() %>
-                </h5>
-              </div>
-              <div class="col-1">
-                <div
-                  style="
-                    border-left: 2px solid black;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;
-                  "
-                ></div>
-              </div>
-              <div class="col-9">
-                <h5 class="card-title"><%= article.title %></h5>
-                <p class="card-text"><%= article.description %>.</p>
-              </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/homePage.css">
+</head>
+<body>
+    <div class="page-container" onselectstart="return false" oncontextmenu="return false">
+        <div class="self-page">
+            <div class="icon">
+                <img src="./image/icon.png">
+                <span>Catslin</span>
             </div>
-          </div>
+            <div class="tages">
+                <div class="tag">java</div>
+                <div class="tag">jvm</div>
+                <div class="tag">spring</div>
+                <div class="tag">springboot</div>
+                <div class="tag">maven</div>
+                <div class="tag">gradle</div>
+                <div class="tag">intellij</div>
+                <div class="tag">eclipse</div>
+                <div class="tag">mysql</div>
+                <div class="tag">node</div>
+            </div>
         </div>
-      </a>
-      <% }) %>
+        <div class="center-show">
+            <div class="center-nav">
+                <input type="text">
+                <a href="/articles/new">SEND</a>
+            </div>
+                <% articles.forEach(article => { %>
+                    <a href="articles/<%= article.slug %>">
+                        <div class="article-card">
+                            <div class="card-top">
+                                <img src="./image/3.png" alt="">
+                                <span>Super萝莉控</span>
+                                <span><%= article.createdAt.toLocaleDateString() %></span>
+                            </div>
+                            <div class="card-center">
+                                <img src="<%= article.image %>" alt="">
+                            </div>
+                            <div class="card-context">
+                                <span><%= article.title %></span>
+                                <p><%= article.description %>.</p>
+                            </div>
+                            <div class="card-buttom">
+                                <img src="./image/2 (4).png" alt="">
+                                <img src="./image/2 (1).png" alt="">
+                                <img src="./image/(2).png" alt="">
+                                <img src="./image/2 (2).png" alt="">
+                                <img src="./image/2 (3).png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+            <div class="footer-nav"></div>
+        </div>
     </div>
-  </body>
+</body>
 </html>
