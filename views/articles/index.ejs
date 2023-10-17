@@ -32,89 +32,6 @@
                 <a href="/articles/new">SEND</a>
             </div>
             <div class="articles-show">
-                <div class="article-card">
-                    <div class="card-top">
-                        <img src="./image/3.png" alt="">
-                        <span>Super萝莉控</span>
-                        <span>2023/10/15</span>
-                    </div>
-                    <div class="card-center">
-                        <img src="./image/foot.jpg" alt="">
-                    </div>
-                    <div class="card-context">
-                        <span>WC is so horny!!!!</span>
-                        <p>How can he bear it? I'll fuck him</p>
-                        <p>How can he bear it? I'll fuck him</p>
-                        <p>How can he bear it? I'll fuck him</p>
-                    </div>
-                    <div class="card-buttom">
-                        <img src="./image/2 (4).png" alt="">
-                        <img src="./image/2 (1).png" alt="">
-                        <img src="./image/(2).png" alt="">
-                        <img src="./image/2 (2).png" alt="">
-                        <img src="./image/2 (3).png" alt="">
-                    </div>
-                </div>
-                <div class="article-card">
-                    <div class="card-top">
-                        <img src="./image/3.png" alt="">
-                        <span>Super萝莉控</span>
-                        <span>2023/10/15</span>
-                    </div>
-                    <div class="card-context">
-                        <span>WC is so horny!!!!</span>
-                        <p>How can he bear it? I'll fuck him</p>
-                    </div>
-                    <div class="card-buttom">
-                        <img src="./image/2 (4).png" alt="">
-                        <img src="./image/2 (1).png" alt="">
-                        <img src="./image/(2).png" alt="">
-                        <img src="./image/2 (2).png" alt="">
-                        <img src="./image/2 (3).png" alt="">
-                    </div>
-                </div>
-                <div class="article-card">
-                    <div class="card-top">
-                        <img src="./image/3.png" alt="">
-                        <span>Super萝莉控</span>
-                        <span>2023/10/15</span>
-                    </div>
-                    <div class="card-center">
-                        <img src="./image/3.jpg" alt="">
-                    </div>
-                    <div class="card-context">
-                        <span>WC is so horny!!!!</span>
-                        <p>How can he bear it? I'll fuck him</p>
-                    </div>
-                    <div class="card-buttom">
-                        <img src="./image/2 (4).png" alt="">
-                        <img src="./image/2 (1).png" alt="">
-                        <img src="./image/(2).png" alt="">
-                        <img src="./image/2 (2).png" alt="">
-                        <img src="./image/2 (3).png" alt="">
-                    </div>
-                </div>
-                <div class="article-card">
-                    <div class="card-top">
-                        <img src="./image/3.png" alt="">
-                        <span>Super萝莉控</span>
-                        <span>2023/10/15</span>
-                    </div>
-                    <div class="card-center img-bug">
-                        <img src="./image/bktest.jpg" alt="">
-                    </div>
-                    <div class="card-context">
-                        <span>WC is so horny!!!!</span>
-                        <p>How can he bear it? I'll fuck him</p>
-                    </div>
-                    <div class="card-buttom">
-                        <img src="./image/2 (4).png" alt="">
-                        <img src="./image/2 (1).png" alt="">
-                        <img src="./image/(2).png" alt="">
-                        <img src="./image/2 (2).png" alt="">
-                        <img src="./image/2 (3).png" alt="">
-                    </div>
-                </div>
                     <% articles.forEach(article => { %>
                     <div class="article-card">
 
@@ -129,7 +46,9 @@
                             </div>
                         <% } %>
                         <div class="card-context">
-                            <span><%= article.title %></span>
+                            <a href="articles/<%= article.slug %>">
+                                <span><%= article.title %></span>
+                            </a>
                             <p><%= article.description %></p>
                         </div>
                         <div class="card-buttom">

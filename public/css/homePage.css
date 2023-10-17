@@ -138,7 +138,7 @@ body {
   width: 80%;
   margin: 10px;
 }
-.card-context > span {
+.card-context > a> span {
   font-family: Bradley Hand, cursive;
   margin: 10px;
   border: 0;
@@ -146,7 +146,7 @@ body {
   margin: 0;
   font-size: 25px;
 }
-.card-context > p {
+.card-context > a> p {
   font-family: Marker Felt, fantasy;
   border: 0;
   padding: 0;
