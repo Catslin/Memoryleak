@@ -2,8 +2,11 @@ body {
   padding: 0;
   margin: 0;
   background-color: black;
-  /* background-image: url('/image/blogbacck.jpg'); */
   background-color: whitesmoke;
+}
+
+a {
+  text-decoration: none;
 }
 
 .page-container {
@@ -12,6 +15,7 @@ body {
   margin: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .self-page {
   width: 10%;
@@ -23,12 +27,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
-.center-nav {
-  width: 90%;
-  height: 10%;
-}
+
 .articles-show {
   height: auto;
   width: 100%;
@@ -88,7 +89,8 @@ body {
 
 .article-card {
   background-color: white;
-  border: 2px black solid;
+  border-top: 2px black solid;
+  border-bottom: 3px black solid;
   width: 90%;
   margin: 10px;
   display: flex;
@@ -99,25 +101,18 @@ body {
   overflow: hidden;
 }
 .article-card > .card-top {
+  padding: 5px;
   width: 100%;
   font-size: 20px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   text-align: center;
   font-family: Jazz LET, fantasy;
 }
-.article-card > .card-top * {
-  margin: 10px;
-}
-.article-card > .card-top > img {
-  align-items: center;
-  justify-content: center;
-  border: 3px solid black;
-  height: 60px;
-  top: 0;
-  position: relative;
-  border-radius: 50%;
+
+.article-card > .card-top >span,a {
+  margin: 5px;
 }
 
 .card-center {
@@ -136,6 +131,7 @@ body {
   width: 100%;
 }
 .card-context {
+  text-align: left;
   width: 80%;
   margin: 10px;
 }
@@ -147,25 +143,14 @@ body {
   margin: 0;
   font-size: 25px;
 }
-.card-context > a> p {
+.card-context > a > p {
   font-family: Marker Felt, fantasy;
   border: 0;
   padding: 0;
   margin: 0;
   font-size: 15px;
 }
-.card-buttom {
-  width: 80%;
-  text-align: center;
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  position: relative;
-  bottom: 5px;
-}
-.card-buttom > img {
-  width: 30px;
-}
+
 /* left-nav */
 .icon {
   width: 100%;
@@ -174,14 +159,6 @@ body {
   flex-direction: column;
   justify-content: center;
   border-bottom: 5px solid transparent;
-}
-.icon > span {
-  font-weight: bold;
-  text-align: center;
-  margin: auto;
-  font-size: 30px;
-  width: 80%;
-  font-family: DejaVu Sans Mono, monospace;
 }
 
 .tages {
@@ -194,23 +171,15 @@ body {
 }
 
 .tag {
+  text-decoration: none;
   padding: 0;
   margin: 5px;
   width: auto;
   height: auto;
-  border: 2px solid transparent;
   padding: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-color: white;
-  color: black;
   font-family: Marker Felt, fantasy;
-  transition: background-color 0.5s ease, color 1s, border 0.5s ease;
 }
-.tag:hover {
-  background-color: black;
-  border: white 2px solid;
-  color: honeydew;
-}
+
 /* 媒体查询 */
 @media (max-width: 768px) {
   .page-container {
@@ -230,22 +199,8 @@ body {
   .center-show {
     width: 90%;
   }
-  .center-show > .center-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .center-show > .center-nav > input {
-    width: 90%;
-  }
-  .center-nav > img {
-    width: 8%;
-  }
   .article-card {
     height: 30%;
-  }
-  .card-buttom {
-    display: none;
   }
   .card-top {
     flex-direction: column;

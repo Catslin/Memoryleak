@@ -1,89 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/dist/index.css" />
     <script src="/dist/index.min.js"></script>
-    <link rel="stylesheet" href="/css/homePage.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/homePage.css" />
+  </head>
+  <body>
     <div class="page-container">
-        <div class="self-page">
-            <div class="icon">
-                <img src="./image/icon.png" alt="">
-                <span>Catslin</span>
-            </div>
-            <div class="tages">
-                <div class="tag">java</div>
-                <div class="tag">jvm</div>
-                <div class="tag">spring</div>
-                <div class="tag">springboot</div>
-                <div class="tag">maven</div>
-                <div class="tag">gradle</div>
-                <div class="tag">intellij</div>
-                <div class="tag">eclipse</div>
-                <div class="tag">mysql</div>
-                <div class="tag">node</div>
-            </div>
+      <div class="self-page">
+        <div class="icon">
+          <img src="./image/icon.png" alt="" />
         </div>
-        <div class="center-show">
-            <div class="center-nav">
-                <input type="text">
-                <a href="/articles/new">SEND</a>
-            </div>
-            <div class="articles-show">
-                    <% articles.forEach(article => { %>
-                    <div class="article-card">
-
-                        <div class="card-top">
-                            <img src="./image/3.png" alt="">
-                            <span>Super萝莉控</span>
-                            <span> <%= article.createdAt.toLocaleDateString() %> </span>
-                        </div>
-                        <% if(article.image){ %>
-                            <div class="card-center">
-                                <img src="<%= article.image %>" alt="">
-                            </div>
-                        <% } %>
-                        <div class="card-context">
-                            <a href="articles/<%= article.slug %>">
-                                <span><%= article.title %></span>
-                            </a>
-                            <p><%= article.description %></p>
-                        </div>
-                        <div class="card-buttom">
-                            <img src="./image/2 (4).png" alt="">
-                            <img src="./image/2 (1).png" alt="">
-                            <img src="./image/(2).png" alt="">
-                            <img src="./image/2 (2).png" alt="">
-                            <img src="./image/2 (3).png" alt="">
-                </div>
-
-                        </div>
-                    <% }); %>
-
-
-            </div>
-            <div class="footer-nav"></div>
+        <div class="tages">
+          <a class="tag" href="/articles/new">#NewFile</a>
         </div>
+      </div>
+      <div class="center-show">
+        <div class="articles-show">
+          <% articles.forEach(article => { %>
+          <div class="article-card">
+            <div class="card-top">
+              <span> <%= article.createdAt.toLocaleDateString() %> </span>
+              <span>
+                <a href="">#Javascript</a>
+                <a href="">#Node</a>
+              </span>
+            </div>
+            <div class="card-context">
+              <a href="articles/<%= article.slug %>">
+                <span><%= article.title %></span>
+              </a>
+              <p><%= article.description %></p>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+        <div class="footer-nav"></div>
+      </div>
     </div>
-</body>
+  </body>
 
-<script>
+  <script>
+    // markdown >>
     const initVditor = (language) => {
       window.vditor = new Vditor("vditor", {
-        cdn: "",//关键
+        cdn: "", //关键
         lang: language,
         height: window.innerHeight - 40,
         preview: {
           theme: {
-            path: "/dist/css/content-theme",//关键
+            path: "/dist/css/content-theme", //关键
           },
         },
         hint: {
-          emojiPath: "/dist/images/emoji",//关键
+          emojiPath: "/dist/images/emoji", //关键
         },
         cache: {
           enable: false,
