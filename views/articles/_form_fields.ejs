@@ -1,22 +1,21 @@
-<div class="form-group">
+<div class="atitle">
   <label for="title">Title</label>
   <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
 </div>
 
-<div class="form-group">
-  <label for="image">File</label>
+<div class="aimage">
   <input type="file" id="image" name="image">
 </div>
 
-<div class="form-group">
+<div class="adescription">
   <label for="description">Description</label>
-  <textarea name="description" id="description" class="form-control"><%= article.description %></textarea>
+  <input name="description" id="description" class="form-control"><%= article.description %></input>
 </div>
 
-<div class="form-group">
   <label for="markdown">Markdown</label>
   <textarea required name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>
-</div>
 
-<a href="/" class="btn btn-secondary">Cancel</a>
-<button type="submit" class="btn btn-primary">Save</button>
+<div class="submit-btn">
+  <a href="/" class="btn btn-secondary">Cancel</a>
+  <button type="submit" class="btn btn-primary">Save</button>
+</div>
