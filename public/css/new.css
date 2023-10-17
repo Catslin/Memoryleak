@@ -159,10 +159,27 @@ a {
 
 @media (max-width: 768px) {
   .container {
+    text-align: center;
     flex-direction: column;
   }
   .container h1 {
     border-bottom: 5px solid black;
+  }
+  .aimage {
+    border: none;
+  }
+  .aimage label {
+    border-bottom: 2px solid black;
+    position: relative;
+    top: 20px;
+  }
+  .aimage input{
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    position: relative;
+    left: 10%;
+    border: none;
   }
   .article-create {
     width: 90%;
