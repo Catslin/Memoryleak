@@ -6,6 +6,9 @@ body {
 }
 
 /* 隐藏滚动条 */
+::-webkit-scrollbar {
+    width: 10px; /* 设置滚动条宽度 */
+  }
 /* 设置滚动条滑块样式 */
 ::-webkit-scrollbar-thumb {
   background-color: #555; /* 设置滚动条滑块颜色 */
@@ -26,7 +29,7 @@ body {
 }
 
 .article-create {
-  width: 50%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,9 +79,8 @@ textarea {
   margin: 0;
   border: 0;
   border: 2px solid black;
-  height: auto;
+  height: 50%;
   width: 95%;
-  overflow-x: hidden;
   white-space: nowrap;
 }
 
