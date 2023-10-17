@@ -3,7 +3,7 @@ body {
   margin: 0;
   background-color: black;
   /* background-image: url('/image/blogbacck.jpg'); */
-  background-color: white;
+  background-image: linear-gradient(to right, whitesmoke, gray);
 }
 
 .page-container {

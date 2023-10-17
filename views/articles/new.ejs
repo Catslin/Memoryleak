@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <h1 class="mb-4">New Article</h1>
-      
+
       <div class="article-create">
         <form action="/articles" method="POST" enctype="multipart/form-data">
           <%- include('_form_fields') %>
@@ -19,11 +19,11 @@
     </div>
   </body>
   <script>
-        var textarea = document.querySelector('textarea');
-    
-    textarea.addEventListener('input', (e) => {
-        textarea.style.height = '100px';
-        textarea.style.height = e.target.scrollHeight + 'px';
+    var textarea = document.querySelector("textarea");
+
+    textarea.addEventListener("input", (e) => {
+      textarea.style.height = "100px";
+      textarea.style.height = e.target.scrollHeight + "px";
     });
   </script>
 </html>
