@@ -1,30 +1,78 @@
-<div class="atitle">
-  <label for="title">Title</label>
-  <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
-</div>
-
-<div class="aimage">
-  <input type="file" id="image" name="image">
-</div>
-
-<div class="adescription">
-  <label for="description">Description</label>
-  <input name="description" id="description" class="form-control"><%= article.description %></input>
-</div>
-
-  <label for="markdown">Markdown</label>
-  <textarea required name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>
-
-
-  <div id="test-editor">
-      <textarea style="display:none;">
-        ### 关于 Editor.md
-  **Editor.md** 是一款开源的、可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。
-      </textarea>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/dist/index.css" />
+  <script src="/dist/index.min.js"></script>
+</head>
+<body>
+  <div class="atitle">
+    <label for="title">Title</label>
+    <input
+      required
+      value="<%= article.title %>"
+      type="text"
+      name="title"
+      id="title"
+      class="form-control"
+    />
   </div>
 
+  <div class="aimage">
+    <label for="description">SetCover</label>
+    <input type="file" id="image" name="image"/>
+  </div>
 
-<div class="submit-btn">
-  <a href="/" class="btn btn-secondary">Cancel</a>
-  <button type="submit" class="btn btn-primary">Save</button>
-</div>
+  <div class="adescription">
+    <label for="description">Description</label>
+    <input name="description" id="description" class="form-control" /><%=
+    article.description %>
+  </div>
+
+  <div class="mkdn">
+    <div class="submit-btn">
+      <a href="/" class="btn btn-secondary">Cancel</a>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+    <div id="vditor" class="vditor"></div>
+  </div>
+
+  <script>
+    const initVditor = (language) => {
+      window.vditor = new Vditor("vditor", {
+        cdn: "", //关键
+        lang: language,
+        height: window.innerHeight - 40,
+        preview: {
+          theme: {
+            path: "/dist/css/content-theme", //关键
+          },
+        },
+        hint: {
+          emojiPath: "/dist/images/emoji", //关键
+        },
+        cache: {
+          enable: false,
+        },
+      });
+    };
+    initVditor("zh_CN");
+
+    // 提交表单时将编辑器的内容放到隐藏的 textarea 中
+    const form = document.querySelector('form');
+    form.addEventListener('submit', e => {
+      // 阻止默认提交行为
+      e.preventDefault();
+      // 将编辑器的内容放到隐藏的 textarea 中
+      const markdown = window.vditor.getValue();
+      const textarea = document.createElement('textarea');
+      textarea.name = 'markdown';
+      textarea.style.display = 'none';
+      textarea.value = markdown;
+      form.appendChild(textarea);
+      // 提交表单
+      form.submit();
+    });
+  </script>
+</body>
+</html>

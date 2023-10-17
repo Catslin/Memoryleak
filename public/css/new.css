@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  background-image: linear-gradient(to right, whitesmoke, gray);
+  background-color: whitesmoke;
+  overflow: hidden;
 }
 
 /* 隐藏滚动条 */
@@ -15,12 +16,13 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 100%;
   height: 100vh;
   margin: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  overflow: auto;
 }
 
 .container > h1 {
@@ -31,10 +33,15 @@ body {
 .article-create {
   width: 80%;
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: auto;
+}
+.article-create label {
+  position: relative;
+  left: 5px;
 }
 .article-create div {
   margin: 10px;
@@ -45,7 +52,7 @@ body {
   color: black;
 }
 
-.article-create input,
+.atitle  input,.aimage  input,.adescription input,
 textarea {
   padding: 0;
   margin: 0;
@@ -59,18 +66,14 @@ textarea {
   background: transparent;
   /* resize: none; */
 }
-
 .aimage input {
-  border: none;
+  width: auto;
+  text-align: center;
 }
 
 .aimage input[type="file"]::-webkit-file-upload-button {
   display: none;
   border: none;
-}
-.amarkdown {
-  background-color: red;
-  height: 500px;
 }
 
 textarea {
@@ -105,6 +108,55 @@ a {
   border-bottom: 3px solid black;
 }
 
+.mkdn {
+  display: block;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  border-radius: 2%;
+  background-color: white;
+  bottom:-100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.mkdn:hover {
+  transform: translateY(-60%);
+}
+
+.mkdn:hover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 20%;
+  background-color: white;
+}
+
+.mkdn:hover::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent white transparent;
+  transform: translateX(-50%);
+}
+
+#vditor {
+  width: 100%;
+  height: 200px;
+  display: flex;
+}
+.vditor-toolbar {
+  display: none;
+}
+
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -115,5 +167,9 @@ a {
   .article-create {
     width: 90%;
     overflow: auto;
+  }
+  .mkdn {
+    left: 5%;
+    right: 5%;
   }
 }
