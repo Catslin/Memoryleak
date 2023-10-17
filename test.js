@@ -1,24 +1,37 @@
-const express = require("express");
-const multer = require("multer");
-// const upload = multer({ dest: 'data/' })
-const bodyParser = require("body-parser");
+// app.js
+import express from "express";
+import React from "react";
+import { renderToString } from "react-dom/server";
+import Vditor from "vditor";
+import "vditor/dist/index.css";
+import App from "./App";
 
 const app = express();
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "data/");
-  },
-  filename: function (req, file, cb) {
-    const timestamp = Date.now();
-    const filename = timestamp + "_" + file.originalname;
-    cb(null, filename);
-  },
-});
-const upload = multer({ storage: storage });
+const port = 3000;
 
-app.post("/bkimage", upload.single("myFile"), function (req, res, next) {
-  console.log(req.file.filename);
-  res.send("ok");
+app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  const vditor = new Vditor("vditor", {
+    after: () => {
+      vditor.setValue("`Vditor` 最小代码示例");
+    },
+  });
+  const html = renderToString(<App />);
+  res.send(`
+    <html>
+      <head>
+        <title>Vditor Example</title>
+        <link rel="stylesheet" href="/index.css">
+      </head>
+      <body>
+        <div id="vditor" class="vditor">${html}</div>
+        <script src="/index.js"></script>
+      </body>
+    </html>
+  `);
 });
 
-app.listen(3000);
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});

@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
-</head>
-<body>
-    <form action="http://127.0.0.1:3000/bkimage" method="post" enctype="multipart/form-data">
-        <input type="file" id="myFile" name="myFile">
-        <input type="submit" value="上传">
-    </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="/dist/index.css" />
+    <script src="/dist/index.min.js"></script>
+  </head>
+
+  <body>
+    <div id="vditor" class="vditor" style="margin-top: 30px"></div>
+  </body>
 </html>
+<script>
+  const initVditor = (language) => {
+    window.vditor = new Vditor("vditor", {
+      cdn: "",//关键
+      lang: language,
+      height: window.innerHeight - 40,
+      preview: {
+        theme: {
+          path: "/dist/css/content-theme",//关键
+        },
+      },
+      hint: {
+        emojiPath: "/dist/images/emoji",//关键
+      },
+      cache: {
+        enable: false,
+      },
+    });
+  };
+  initVditor("zh_CN");
+  window.setLang = (language) => {
+    window.vditor.destroy();
+    initVditor(language);
+  };
+</script>

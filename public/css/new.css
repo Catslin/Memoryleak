@@ -7,7 +7,7 @@ body {
 
 /* 隐藏滚动条 */
 ::-webkit-scrollbar {
-    width: 10px; /* 设置滚动条宽度 */
+    width: 3px; /* 设置滚动条宽度 */
   }
 /* 设置滚动条滑块样式 */
 ::-webkit-scrollbar-thumb {
